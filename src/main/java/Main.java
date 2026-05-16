@@ -34,14 +34,23 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("1: 아이스 / 2: 핫");
-                    System.out.print("번호를 입력하세요: ");
-                    String icedInput = scanner.nextLine();
+                    String icedInput;
+                    while (true) {
+                        System.out.print("번호를 입력하세요: ");
+                        icedInput = scanner.nextLine();
+                        if (icedInput.equals("1") || icedInput.equals("2")) break;
+                        System.out.println("1 또는 2를 입력해주세요.");
+                    }
                     boolean is_iced = icedInput.equals("1");
                     order.addItem(new Coffee(is_iced));
                     break;
 
                 case "4":
                     order.addItem(new IcedTea());
+                    break;
+
+                default:
+                    System.out.println("올바른 번호를 입력해주세요.");
                     break;
             }
         }
